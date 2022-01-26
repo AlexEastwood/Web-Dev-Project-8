@@ -1,21 +1,47 @@
 main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: 90vw;
+    margin: auto;
+}
+
+h1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-weight: 300;
+    font-size: 1.4rem;
 }
 
 .card {
 
     img {
         border-radius: 50%;
+        max-height: 110px;
+        margin-right: 20px;
     }
-    border: 1px solid lightgray;
+    border: 3px solid whitesmoke;
     border-radius: 5px;
     width: 90%;
     margin: auto;
     display: flex;
+    padding: 20px 10px;
+    margin-bottom: 25px;
+
+    span {
+        font-weight: 100;
+        color: grey;
+    }
+
+    .name {
+        font-weight: 400;
+        color: dimgray;
+    }
 }
 
 .info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
