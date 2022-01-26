@@ -1,0 +1,11 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+}
