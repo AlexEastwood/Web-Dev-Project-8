@@ -407,10 +407,19 @@ main {
 }
 
 .card {
-  border: 1px solid grey;
+  border: 1px solid lightgray;
   border-radius: 5px;
   width: 90%;
   margin: auto;
+  display: flex;
+}
+.card img {
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=output.css.map */

@@ -4,8 +4,18 @@ main {
 }
 
 .card {
-    border: 1px solid grey;
+
+    img {
+        border-radius: 50%;
+    }
+    border: 1px solid lightgray;
     border-radius: 5px;
     width: 90%;
     margin: auto;
+    display: flex;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
 }
