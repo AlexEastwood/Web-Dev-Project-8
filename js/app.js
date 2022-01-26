@@ -64,8 +64,13 @@ function createCard(data) {
     
 }
 
-document.querySelectorAll('.card').forEach(item => {
-    console.log(item.innerHTML)
-});
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(function(e){
+    e.addEventListener("click", function(){
+        console.log("hello");
+    })
+})
+
 
       
