@@ -41,8 +41,6 @@ function getLocation(data) {
 }
 
 
-
-
 // Function for creating card for each employee
 function createCard(data) {
     main = document.getElementById("main");
@@ -66,11 +64,6 @@ function createCard(data) {
 
 let cards = document.querySelectorAll(".card");
 
-cards.forEach(function(e){
-    e.addEventListener("click", function(){
-        console.log("hello");
-    })
-})
-
+cards.forEach(e => e.addEventListener("click", () => console.log("hello")));
 
       
