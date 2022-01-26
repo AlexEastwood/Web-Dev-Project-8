@@ -40,6 +40,9 @@ function getLocation(data) {
     return span;
 }
 
+function getInfo(card) {
+    console.log(card);
+}
 
 // Function for creating card for each employee
 function createCard(data) {
@@ -56,7 +59,9 @@ function createCard(data) {
         info.appendChild(getLocation(e));
 
         card.appendChild(info);
-        card.addEventListener("click", () => console.log("hello"));
+        card.addEventListener("click", function (e) {
+            getInfo(e)
+        });
 
         main.appendChild(card);
     })
