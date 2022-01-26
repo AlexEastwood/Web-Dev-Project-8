@@ -55,15 +55,14 @@ function createCard(data) {
         info.appendChild(getEmail(e));
         info.appendChild(getLocation(e));
 
-        card.appendChild(info)
+        card.appendChild(info);
+        card.addEventListener("click", () => console.log("hello"));
 
-        main.appendChild(card)
+        main.appendChild(card);
     })
     
 }
 
-let cards = document.querySelectorAll(".card");
 
-cards.forEach(e => e.addEventListener("click", () => console.log("hello")));
 
       
