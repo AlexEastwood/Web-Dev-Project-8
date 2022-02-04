@@ -36,6 +36,9 @@ h1 {
         font-weight: 400;
         color: dimgray;
     }
+    .extra-info {
+        display: none;
+    }
 }
 
 .info {
@@ -45,16 +48,66 @@ h1 {
     flex-wrap: wrap;
 }
 
+.lightbox-background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+}
+
+
 
 .lightbox {
+    display: none;
     position: fixed;
     z-index: 999;
-    top: 0;
+    top: -400px;
     left: 0;
     right: 0;
     bottom: 0;
     height: 400px;
-    width: 400px;
-    background-color: red;
+    width: 420px;
+    background-color: white;
     margin: auto;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+
+    img {
+        border-radius: 50%;
+        max-height: 150px;
+        max-width: 150px;
+        margin-top: 30px;
+    }
+
+    span {
+        font-weight: 100;
+        color: grey;
+    }
+
+    .info {
+        align-items: center;
+        margin-top: 20px;
+
+        .name {
+            font-weight: 400;
+            color: dimgray;
+        }
+    }
+    
+    .extra-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: auto;
+        margin-bottom: 30px;
+        width: 85%;
+        border-top: 1px solid whitesmoke;
+        padding-top: 30px;
+    }
   }

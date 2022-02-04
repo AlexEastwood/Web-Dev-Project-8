@@ -1,3 +1,8 @@
+let employees =[]
+let main = document.getElementById("main")
+let lightbox = document.getElementById("lightbox")
+let background = document.getElementById("lightbox-background")
+
 /////////////////////
 // Fetch Functions //
 /////////////////////
@@ -10,64 +15,48 @@ function fetchData(url) {
 fetchData('https://randomuser.me/api/?results=12') 
     .then(data => createCard(data.results))
 
-
-/////////////////////////////////////
-// Information Retrieval Functions //
-/////////////////////////////////////
-
-function getImage(data) {
-    img = document.createElement("img");
-    img.src = `${data.picture.large}`;
-    return img;
-}
-
-function getName(data) {
-    span = document.createElement("span");
-    span.classList.add("name")
-    span.innerText = `${data.name.first} ${data.name.last}`;
-    return span
-}
-
-function getEmail(data) {
-    span = document.createElement("span");
-    span.innerText = `${data.email}`;
-    return span;
-}
-
-function getLocation(data) {
-    span = document.createElement("span");
-    span.innerText = `${data.location.city}`;
-    return span;
-}
-
-function getInfo(card) {
-    console.log(card);
-}
-
 // Function for creating card for each employee
 function createCard(data) {
-    main = document.getElementById("main");
-    data.forEach(e => {
-        let card = document.createElement("div");
-        card.classList.add("card");
-        
-        let info = document.createElement("div");
-        info.classList.add("info") 
-        card.appendChild(getImage(e));
-        info.appendChild(getName(e));
-        info.appendChild(getEmail(e));
-        info.appendChild(getLocation(e));
-
-        card.appendChild(info);
-        card.addEventListener("click", function (e) {
-            getInfo(e)
-        });
-
-        main.appendChild(card);
-    })
+    employees = data
     
+    employees.forEach(employee => {
+        //Split the employee object data into variables
+        let [image, firstName, lastName, email, 
+            phone, street, city, state, postcode, 
+            birthday] = [employee.picture.large, employee.name.first, 
+                employee.name.last, employee.email, employee.phone, 
+                employee.location.street, employee.location.city, 
+                employee.location.state, employee.location.postcode, 
+                employee.dob.date.split("T")[0]]
+
+        let cardDiv = document.createElement("div")
+        cardDiv.classList.add("card")
+        cardDiv.innerHTML = `
+            <img src="${image}">
+            <div class="info">
+                <span class="name">${firstName} ${lastName}</span>
+                <span>${email}</span>
+                <span>${city}</span>
+            </div>
+            <div class="extra-info">
+                <span>${phone}</span>
+                <span>${street}, ${state} ${postcode}</span>
+                <span>Birthday: ${birthday}</span>
+            </div>`
+        cardDiv.addEventListener("click", openOverlay)
+        
+        main.appendChild(cardDiv)
+    })
 }
 
+function openOverlay() {
+    lightbox.innerHTML = this.innerHTML
+    lightbox.style.display = "flex"
+    background.style.display = "block"
+    background.addEventListener("click", closeOverlay)
+}
 
-
-      
+function closeOverlay() {
+    lightbox.style.display = "none"
+    background.style.display = "none"
+}
