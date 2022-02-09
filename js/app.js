@@ -22,11 +22,11 @@ function createCard(data) {
     employees.forEach(employee => {
         //Split the employee object data into variables
         let [image, firstName, lastName, email, 
-            phone, street, city, state, postcode, 
+            phone, street, number, city, state, postcode, 
             birthday] = [employee.picture.large, employee.name.first, 
                 employee.name.last, employee.email, employee.phone, 
-                employee.location.street, employee.location.city, 
-                employee.location.state, employee.location.postcode, 
+                employee.location.street.name, employee.location.street.number, 
+                employee.location.city, employee.location.state, employee.location.postcode, 
                 employee.dob.date.split("T")[0]]
 
         let cardDiv = document.createElement("div")
@@ -40,7 +40,7 @@ function createCard(data) {
             </div>
             <div class="extra-info">
                 <span>${phone}</span>
-                <span>${street}, ${state} ${postcode}</span>
+                <span>${number} ${street}, ${state} ${postcode}</span>
                 <span>Birthday: ${birthday}</span>
             </div>`
         cardDiv.addEventListener("click", openOverlay)
